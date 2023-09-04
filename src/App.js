@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { Fragment, useState } from "react";
+import "./App.css";
+import Form from "./components/Form/Form";
+import Header from "./components/Header/Header";
+import MyOrg from "./components/MyOrg";
 
 function App() {
+  const [showForm, setShowForm] = useState(true);
+
+  // Ternario ---> condicion ? seMuestra : noSeMuestra
+  // condicion && seMuestra
+
+  const changeShowForm = () => {
+    setShowForm(!showForm);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      {/* {showForm ? <Form /> : <></>} */}
+      {/* {showForm ? <Form /> : <Fragment />} */}
+      {showForm && <Form />}
+      <MyOrg changeShowForm={changeShowForm}/>
     </div>
   );
 }
