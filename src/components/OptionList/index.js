@@ -1,16 +1,6 @@
 import './OptionList.css'
 
-const OptionList = ({value, setTeam}) => {
-
-  const equipos = [
-    "Programación",
-    "Front End",
-    "Data Science",
-    "Devops",
-    "UX y Diseño",
-    "Móvil",
-    "Innovación y Gestión",
-  ]
+const OptionList = ({teams, value, setTeam}) => {
 
   const handleChange = (e) => {
     setTeam(e.target.value)
@@ -22,7 +12,7 @@ const OptionList = ({value, setTeam}) => {
       <select value={value} onChange={handleChange}>
         <option value="" disabled defaultValue="" hidden>Seleccionar equipo</option>
         {
-          equipos.map((equipo, index) => <option key={index} value={equipo}>{equipo}</option>)
+          teams.map((title, index) => <option key={index} value={title}>{title}</option>)
         }
       </select>
     </div>

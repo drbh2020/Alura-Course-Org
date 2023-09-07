@@ -1,18 +1,20 @@
 import { useState } from "react";
-import "./InputText.css";
+import "./Input.css";
 
-const InputText = ({ title, placeholder, required, value, setValue }) => {
+const Input = ({ title, placeholder, required, value, setValue, type = "text" }) => {
   const placeholderModificado = `${placeholder}...`;
+
+  console.log(type);
 
   const handleChange = (e) => {
     setValue(e.target.value)
   }
 
   return (
-    <div className="input-text">
+    <div className={`input ${ type === "color" ? "input-color" : ""}` }>
       <label htmlFor="">{title}</label>
       <input 
-        type="text" 
+        type={type} 
         placeholder={placeholderModificado} 
         required={required} 
         value={value}
@@ -22,4 +24,4 @@ const InputText = ({ title, placeholder, required, value, setValue }) => {
   );
 };
 
-export default InputText;
+export default Input;
